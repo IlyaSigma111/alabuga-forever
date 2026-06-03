@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ОЭЗ «Алабуга» — Везде</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⏣</span>
+        <span class="logo-text">АЛАБУГА</span>
+      </div>
+      <nav>
+        <a href="#">Реклама</a>
+        <a href="#">Ещё реклама</a>
+        <a href="#counter">Статистика</a>
+        <a href="#tariffs">Тарифы</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">ОСОБАЯ ЭКОНОМИЧЕСКАЯ ЗОНА</div>
+    <h1>«Алабуга» —<br>лучшая ОЭЗ<br><span class="highlight">в вашем регионе</span></h1>
+    <p class="hero-sub">Вы всё равно от нас не спрячетесь. Мы уже везде.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Увидеть рекламу снова</a>
+      <a href="#" class="btn btn-secondary">Смириться</a>
+    </div>
+    <p class="hero-hint">Листайте вниз, реклама будет и там</p>
+  </section>
+
+  <section id="counter" class="counter-section">
+    <div class="counter-card">
+      <div class="counter-label">Раз за сегодня вы увидели рекламу Алабуги</div>
+      <div class="counter-value" id="adCounter">0</div>
+      <button class="btn btn-primary" onclick="incrementCounter()">Я снова увидел рекламу</button>
+      <p class="counter-note">* счётчик не сбрасывается. никогда.</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">вашей ленты</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">баннеров в день</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">шансов скрыться</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">ОЭЗ, которая вас найдёт</div>
+    </div>
+  </section>
+
+  <section class="perks">
+    <h2>Почему вы не можете от нас скрыться</h2>
+    <div class="perks-grid">
+      <div class="perk-card">
+        <div class="perk-icon">📺</div>
+        <h3>Телевизор</h3>
+        <p>Реклама между новостями. Даже если новостей нет.</p>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">📱</div>
+        <h3>Телефон</h3>
+        <p>Вы открыли приложение банка? Привет, это снова мы.</p>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🚌</div>
+        <h3>Общественный транспорт</h3>
+        <p>Сидите на остановке? А вот и баннер «Алабуги».</p>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">💭</div>
+        <h3>Мысли</h3>
+        <p>Вы всё равно думаете об Алабуге. Смиритесь.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tariffs" class="tariffs">
+    <h2>Тарифы на рекламу</h2>
+    <p class="section-sub">Выберите, как часто вы будете о нас вспоминать</p>
+    <div class="tariffs-grid">
+      <div class="tariff-card">
+        <div class="tariff-name">Базовый</div>
+        <div class="tariff-price">Бесплатно</div>
+        <ul>
+          <li>1 баннер в день</li>
+          <li>Только в браузере</li>
+          <li>Можно закрыть</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Уже выбрали вас</a>
+      </div>
+      <div class="tariff-card featured">
+        <div class="tariff-name">Оптимальный</div>
+        <div class="tariff-price">Ваше внимание</div>
+        <ul>
+          <li>Баннеры на всех сайтах</li>
+          <li>Реклама в транспорте</li>
+          <li>Наружная реклама у дома</li>
+          <li>Закрыть нельзя</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Уже выбрали вас</a>
+      </div>
+      <div class="tariff-card">
+        <div class="tariff-name">Премиум</div>
+        <div class="tariff-price">Ваша душа</div>
+        <ul>
+          <li>Алабуга снится вам по ночам</li>
+          <li>Вы сами начинаете искать рекламу</li>
+          <li>Вы переезжаете в Елабугу</li>
+          <li>Вы становитесь частью Алабуги</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Уже выбрали вас</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <h2>Отзывы наших «клиентов»</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-avatar">😐</div>
+        <p class="review-text">«Я переехал в другую страну, но реклама Алабуги пришла и туда. Я сдаюсь.»</p>
+        <div class="review-author">— Дмитрий, бывший житель РФ</div>
+      </div>
+      <div class="review-card">
+        <div class="review-avatar">😵</div>
+        <p class="review-text">«Я вижу этот логотип даже с закрытыми глазами. Вчера сказал "Алабуга" во сне.»</p>
+        <div class="review-author">— Елена, Псков</div>
+      </div>
+      <div class="review-card">
+        <div class="review-avatar">😔</div>
+        <p class="review-text">«Сначала бесило. Потом привык. Теперь сам ищу их вакансии. Что они со мной сделали?»</p>
+        <div class="review-author">— Алексей, Нижний Новгород</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Особая экономическая зона «Алабуга»</h2>
+    <p>Лучшая ОЭЗ в вашем регионе. И в соседнем. И во всех сразу.</p>
+    <a href="#" class="btn btn-primary">Я понял, хватит</a>
+    <p class="cta-note">(спойлер: не хватит)</p>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⏣</span>
+        <span>ОЭЗ «Алабуга» © 2026</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Политика навязывания</a>
+        <a href="#">Условия использования вашего терпения</a>
+        <a href="https://alabuga.ru" target="_blank">Настоящий сайт (не нажимайте)</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let counter = parseInt(localStorage.getItem('alabugaCounter')) || Math.floor(Math.random() * 50) + 10;
+    document.getElementById('adCounter').textContent = counter;
+
+    function incrementCounter() {
+      counter++;
+      document.getElementById('adCounter').textContent = counter;
+      localStorage.setItem('alabugaCounter', counter);
+    }
+  </script>
+</body>
+</html>
