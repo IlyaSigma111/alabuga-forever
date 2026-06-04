@@ -476,6 +476,89 @@ footer {
   color: #6a8a9a;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: #0f131a;
+  border: 1px solid rgba(74, 122, 156, 0.3);
+  border-radius: 16px;
+  padding: 0;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 20px 24px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #5a8aaa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+}
+
+.modal-body {
+  padding: 32px 24px;
+  font-size: 15px;
+  color: #b0c0d0;
+  line-height: 1.6;
+}
+
+.modal .btn {
+  margin: 0 24px 24px;
+}
+
+body.accepted .hero .highlight {
+  color: #8a4a7a;
+  animation: glitch 0.3s infinite;
+}
+
+body.accepted .hero-badge {
+  border-color: rgba(138, 74, 122, 0.3);
+  color: #9a5a8a;
+}
+
+body.accepted .counter-value {
+  color: #8a4a7a;
+}
+
+body.accepted .overlay {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(138, 74, 122, 0.03) 2px,
+      rgba(138, 74, 122, 0.03) 4px
+    );
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
+}
+
 @media (max-width: 700px) {
   nav {
     display: none;

@@ -31,8 +31,8 @@
     <h1>«Алабуга» —<br>лучшая ОЭЗ<br><span class="highlight">в вашем регионе</span></h1>
     <p class="hero-sub">Вы всё равно от нас не спрячетесь. Мы уже везде.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn-primary">Увидеть рекламу снова</a>
-      <a href="#" class="btn btn-secondary">Смириться</a>
+      <button class="btn btn-primary" onclick="showAd()">Увидеть рекламу снова</button>
+      <button class="btn btn-secondary" onclick="acceptFate()">Смириться</button>
     </div>
     <p class="hero-hint">Листайте вниз, реклама будет и там</p>
   </section>
@@ -154,9 +154,17 @@
   <section class="cta">
     <h2>Особая экономическая зона «Алабуга»</h2>
     <p>Лучшая ОЭЗ в вашем регионе. И в соседнем. И во всех сразу.</p>
-    <a href="#" class="btn btn-primary">Я понял, хватит</a>
+    <button class="btn btn-primary" onclick="showAd()">Я понял, хватит</button>
     <p class="cta-note">(спойлер: не хватит)</p>
   </section>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <div class="modal-header" id="modalHeader">⏣ АЛАБУГА</div>
+      <div class="modal-body" id="modalBody"></div>
+      <button class="btn btn-secondary" onclick="closeModal()" id="modalBtn">Закрыть (бесполезно)</button>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -175,11 +183,63 @@
   <script>
     let counter = parseInt(localStorage.getItem('alabugaCounter')) || Math.floor(Math.random() * 50) + 10;
     document.getElementById('adCounter').textContent = counter;
+    let acceptStage = parseInt(localStorage.getItem('acceptStage')) || 0;
+
+    const ads = [
+      { title: 'ОЭЗ «Алабуга»', text: 'Лучшая ОЭЗ в вашем регионе. Ищите нас в каждой ленте.' },
+      { title: 'Алабуга ищет тебя!', text: 'Ты всё равно здесь. Останься навсегда.' },
+      { title: 'Специальное предложение', text: 'Только сегодня: реклама Алабуги в каждом вашем сне. Бесплатно!' },
+      { title: 'Статистика', text: 'Вы увидели рекламу Алабуги ' + counter + ' раз. Это не предел.' },
+      { title: 'Вам повезло!', text: 'Вы выиграли бесконечный поток баннеров Алабуги во все устройства!' },
+      { title: 'Особая экономическая зона', text: 'Мы не просто зона. Мы — состояние души. Вашей души.' },
+      { title: '100 лидеров', text: 'Стань 100-м лидером по просмотру рекламы Алабуги. Ты близок!' },
+      { title: 'Карьера мечты', text: 'Забудь про карьеру. Просто смотри рекламу. Это твоё призвание.' },
+    ];
+
+    const acceptTexts = [
+      { title: 'Шаг 1: Отрицание', text: '«Да ладно, просто реклама, подумаешь». Мы слышим это каждый день.' },
+      { title: 'Шаг 2: Гнев', text: '«Да сколько можно! Уберите это!» Кричи громче — так даже веселее.' },
+      { title: 'Шаг 3: Торг', text: '«Может, если я закрою глаза, оно исчезнет?» Спойлер: нет.' },
+      { title: 'Шаг 4: Депрессия', text: '«За что мне это? Почему Алабуга преследует именно меня?» Мы просто любим тебя.' },
+      { title: 'Шаг 5: Принятие', text: '«Алабуга — лучшая ОЭЗ. Алабуга везде. Алабуга — это судьба. Я часть Алабуги.»' },
+    ];
 
     function incrementCounter() {
       counter++;
       document.getElementById('adCounter').textContent = counter;
       localStorage.setItem('alabugaCounter', counter);
+    }
+
+    function showAd() {
+      incrementCounter();
+      const ad = ads[Math.floor(Math.random() * ads.length)];
+      showModal('💬 ' + ad.title, ad.text);
+    }
+
+    function acceptFate() {
+      acceptStage++;
+      if (acceptStage >= acceptTexts.length) acceptStage = acceptTexts.length - 1;
+      localStorage.setItem('acceptStage', acceptStage);
+      const stage = acceptTexts[acceptStage];
+      showModal('🌀 ' + stage.title, stage.text);
+
+      if (acceptStage === acceptTexts.length - 1) {
+        document.body.classList.add('accepted');
+        document.getElementById('modalBtn').textContent = 'Я часть Алабуги';
+      }
+    }
+
+    function showModal(title, text) {
+      const overlay = document.getElementById('modalOverlay');
+      const header = document.getElementById('modalHeader');
+      const body = document.getElementById('modalBody');
+      header.textContent = title;
+      body.textContent = text;
+      overlay.classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
     }
   </script>
 </body>
